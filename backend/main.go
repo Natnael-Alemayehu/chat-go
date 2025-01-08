@@ -13,6 +13,8 @@ func main() {
 
 	http.HandleFunc("/ws", handlers.HandleConnections)
 
+	go handlers.HandleMessages()
+
 	log.Print("Server started on :8080")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
